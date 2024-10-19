@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://t122o2e5n3fj"]
+
+[ext_resource type="Texture2D" uid="uid://b7c70x8kk3r03" path="res://Sprites/catExample.png" id="2_86w44"]
+[ext_resource type="Script" path="res://Scripts/cat.gd" id="2_h7df5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="catExample" type="Sprite2D" parent="."]
+position = Vector2(187, 892)
+texture = ExtResource("2_86w44")
+script = ExtResource("2_h7df5")
