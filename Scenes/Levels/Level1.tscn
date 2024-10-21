@@ -1,0 +1,87 @@
+[gd_scene load_steps=14 format=3 uid="uid://bss8kwq2mjefx"]
+
+[ext_resource type="Texture2D" uid="uid://dl8yruum3wkqj" path="res://2D Art/Levels/background_darkTest.png" id="1_2jjww"]
+[ext_resource type="PackedScene" uid="uid://b7ia51cg8r26s" path="res://Scenes/Characters/Player.tscn" id="2_toi8k"]
+[ext_resource type="SpriteFrames" uid="uid://oyygpfqdmygb" path="res://Animation/Door.tres" id="3_pnbof"]
+[ext_resource type="Texture2D" uid="uid://la2smm3fqq6p" path="res://2D Art/Itens/Gato_Jaula.png" id="4_180j3"]
+[ext_resource type="Texture2D" uid="uid://xvc3brekyebo" path="res://2D Art/PlaceHolders/platform_regular.png" id="4_xoenv"]
+[ext_resource type="Texture2D" uid="uid://dtomg44qj4mwr" path="res://2D Art/PlaceHolders/platform_floor.png" id="5_kobh1"]
+[ext_resource type="Texture2D" uid="uid://d4dk66wkxcesq" path="res://2D Art/PlaceHolders/platform_wide.png" id="6_p66n0"]
+[ext_resource type="Texture2D" uid="uid://qvdc5i86lms3" path="res://2D Art/PlaceHolders/button.png" id="8_geh31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi3ah"]
+size = Vector2(500, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eifk"]
+size = Vector2(1250, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrk7"]
+size = Vector2(228, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4pnq"]
+size = Vector2(1920, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smomu"]
+size = Vector2(125, 35)
+
+[node name="Level1" type="Node2D"]
+
+[node name="BackgroundDarkTest" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_2jjww")
+
+[node name="PlatformRegular" type="StaticBody2D" parent="."]
+position = Vector2(1670, 658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformRegular"]
+shape = SubResource("RectangleShape2D_mi3ah")
+
+[node name="RegPlatSprite" type="Sprite2D" parent="PlatformRegular"]
+texture = ExtResource("4_xoenv")
+
+[node name="PlatformWide" type="StaticBody2D" parent="."]
+position = Vector2(600, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformWide"]
+shape = SubResource("RectangleShape2D_0eifk")
+
+[node name="WidePlatSprite" type="Sprite2D" parent="PlatformWide"]
+texture = ExtResource("6_p66n0")
+
+[node name="CatJail" type="StaticBody2D" parent="."]
+position = Vector2(1218, 862)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatJail"]
+position = Vector2(0, 41)
+shape = SubResource("RectangleShape2D_onrk7")
+
+[node name="CatJailSprite" type="Sprite2D" parent="CatJail"]
+texture = ExtResource("4_180j3")
+
+[node name="Player" parent="." instance=ExtResource("2_toi8k")]
+position = Vector2(886, 847)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1979, 846)
+sprite_frames = ExtResource("3_pnbof")
+animation = &"Closed"
+
+[node name="PlatformFloor" type="StaticBody2D" parent="."]
+position = Vector2(960, 1065)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformFloor"]
+shape = SubResource("RectangleShape2D_a4pnq")
+
+[node name="FloorSprite" type="Sprite2D" parent="PlatformFloor"]
+texture = ExtResource("5_kobh1")
+
+[node name="Button" type="Area2D" parent="."]
+position = Vector2(258, 972)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button"]
+shape = SubResource("RectangleShape2D_smomu")
+
+[node name="ButtonSprite" type="Sprite2D" parent="Button"]
+texture = ExtResource("8_geh31")
+
+[editable path="Player"]

@@ -1,3 +1,99 @@
-[gd_scene format=3 uid="uid://dmhb1u4m5tl4s"]
+[gd_scene load_steps=10 format=3 uid="uid://dmhb1u4m5tl4s"]
+
+[ext_resource type="Texture2D" uid="uid://dpjcsm778xsol" path="res://2D Art/Levels/sci_fi_bg1.jpg" id="1_73w2r"]
+[ext_resource type="Texture2D" uid="uid://d3i553c1rru06" path="res://icon.svg" id="2_slbta"]
+[ext_resource type="Script" path="res://Scripts/PlayerMov_Test.gd" id="3_62a1k"]
+[ext_resource type="Texture2D" uid="uid://b7c70x8kk3r03" path="res://Sprites/catExample.png" id="4_pe0hl"]
+[ext_resource type="Script" path="res://Scripts/FollowCamera.gd" id="5_de71r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxsql"]
+size = Vector2(244.129, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7emp1"]
+size = Vector2(403, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_im7yw"]
+size = Vector2(128.265, 114.726)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkf2d"]
+size = Vector2(204, 305)
 
 [node name="Level0" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="SciFiBg1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1496.89, 842)
+scale = Vector2(1.55926, 1.55926)
+texture = ExtResource("1_73w2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.865118, 0.164068, 0.703352, 1)
+position = Vector2(780.75, 762)
+scale = Vector2(4.08984, 0.671875)
+texture = ExtResource("2_slbta")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(-0.22, 2.01)
+scale = Vector2(0.332468, 1.48837)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0.845581, 0)
+scale = Vector2(1.53636, 1)
+shape = SubResource("RectangleShape2D_lxsql")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.865118, 0.164068, 0.703352, 1)
+position = Vector2(1399, 564)
+scale = Vector2(3.00781, 0.671875)
+texture = ExtResource("2_slbta")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
+position = Vector2(1.587, -1.299)
+scale = Vector2(0.332468, 1.48837)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D"]
+position = Vector2(-13.2734, -3.12723)
+shape = SubResource("RectangleShape2D_7emp1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.865118, 0.164068, 0.703352, 1)
+position = Vector2(1427, 1360)
+scale = Vector2(33.71, 1.18311)
+texture = ExtResource("2_slbta")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/StaticBody2D"]
+position = Vector2(-0.132637, -5.68878)
+shape = SubResource("RectangleShape2D_im7yw")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(1615, 1023)
+script = ExtResource("3_62a1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_bkf2d")
+
+[node name="CatExample" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("4_pe0hl")
+
+[node name="FollowCam" type="Camera2D" parent="CharacterBody2D" node_paths=PackedStringArray("background")]
+limit_left = 0
+limit_top = 0
+limit_right = 2993
+limit_bottom = 1684
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.3
+drag_vertical_offset = 0.3
+script = ExtResource("5_de71r")
+background = NodePath("../../ParallaxBackground/ParallaxLayer/SciFiBg1")
+top_limit = 2993
+right_limit = 2993
+bottom_limit = 1684
