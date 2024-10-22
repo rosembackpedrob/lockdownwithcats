@@ -8,16 +8,13 @@ radius = 75.0
 height = 220.0
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 1
 script = ExtResource("1_1nblt")
-jump_speed = 750.0
-custom_gravity = 1100
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_x2qyb")
+animation = &"Idle"
+frame_progress = 0.947339
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 17)
 shape = SubResource("CapsuleShape2D_thv1f")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_x2qyb")
-animation = &"Jump"
-frame_progress = 0.967496

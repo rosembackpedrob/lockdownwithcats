@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cwu17h62hxyw3"]
+
+[ext_resource type="Texture2D" uid="uid://jjdu4x63bse3" path="res://2D Art/Levels/button/button_f01.png" id="1_xth6l"]
+[ext_resource type="Texture2D" uid="uid://fvd5fm25wuq3" path="res://2D Art/Levels/button/button_f02.png" id="2_dbgi4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xth6l")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dbgi4")
+}],
+"loop": true,
+"name": &"On",
+"speed": 1.0
+}]

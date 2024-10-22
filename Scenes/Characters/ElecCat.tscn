@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://fltepqnpi7vf"]
+
+[ext_resource type="SpriteFrames" uid="uid://b1pn6clb7iex0" path="res://Animation/ElecCat.tres" id="1_dach7"]
+[ext_resource type="Script" path="res://Scenes/Characters/ElecCatController.gd" id="1_wna7l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ch7gv"]
+radius = 51.0
+height = 136.0
+
+[node name="ElecCat" type="CharacterBody2D" groups=["Cats"]]
+script = ExtResource("1_wna7l")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_dach7")
+animation = &"Idle"
+frame_progress = 0.60685
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Cats"]]
+position = Vector2(6, 75)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ch7gv")
+disabled = true

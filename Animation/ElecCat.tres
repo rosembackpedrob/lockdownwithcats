@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://b1pn6clb7iex0"]
+
+[ext_resource type="Texture2D" uid="uid://12pasdhpfdth" path="res://2D Art/ElecCat/ElecCat_Atk_f01.png" id="1_7l3x8"]
+[ext_resource type="Texture2D" uid="uid://dx4j6fe67m0e3" path="res://2D Art/ElecCat/ElecCat_walk_f02.png" id="1_dot25"]
+[ext_resource type="Texture2D" uid="uid://ffgednyytox4" path="res://2D Art/ElecCat/ElecCat_Atk_f02.png" id="2_7nspx"]
+[ext_resource type="Texture2D" uid="uid://cetl54hk0eke3" path="res://2D Art/ElecCat/ElecCat_walk_f01.png" id="2_ld2td"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("1_7l3x8")
+}, {
+"duration": 4.0,
+"texture": ExtResource("2_7nspx")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dot25")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("2_ld2td")
+}, {
+"duration": 10.0,
+"texture": ExtResource("1_dot25")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 60.0
+}]
